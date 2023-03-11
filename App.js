@@ -14,7 +14,8 @@ export default function App() {
         }}
       >
         <LittleLemonHeader />
-        <MenuItem/>
+        <WelcomeScreen/>
+        {/* <MenuItem/> */}
       </View>
 
 {/*       <View style={{
