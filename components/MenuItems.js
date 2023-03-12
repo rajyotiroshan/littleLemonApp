@@ -24,6 +24,13 @@ const menuItemsToDisplay = [
   { name: "Tiramisu", price: "$5.00", id: "20U" },
   { name: "Panna Cotta", price: "$5.00", id: "21V" },
 ];
+const Seperator = () => <View style={menuStyle.seperatorStyle}></View>;
+const Header = () => <Text style={menuStyle.headerText}>Menu</Text>;
+const Footer = () => (
+  <Text style={menuStyle.footerText}>
+    Pace Your Order Between 10 AM - 10 PM
+  </Text>
+);
 
 const Item = ({ name, price }) => {
   return (
@@ -44,11 +51,13 @@ export default function MenuItems() {
   };
   return (
     <View style={menuStyle.container}>
-      <Text style={menuStyle.headerText}>Menu</Text>
       <FlatList
         data={menuItemsToDisplay}
         renderItem={renderItems}
         keyExtractor={(item) => item.id}
+        ItemSeparatorComponent={Seperator}
+        ListHeaderComponent={Header}
+        ListFooterComponent={Footer}
       ></FlatList>
     </View>
   );
@@ -91,6 +100,13 @@ const menuStyle = StyleSheet.create({
     marginRight: 20,
   },
   seperatorStyle: {
-    borderBottom: "1px solid white",
+    borderBottomColor: "lightgrey",
+    borderBottomWidth: 2,
+  },
+  footerText: {
+    textAlign: "center",
+    fontSize: 18,
+    color: "green",
+    padding: 10,
   },
 });
